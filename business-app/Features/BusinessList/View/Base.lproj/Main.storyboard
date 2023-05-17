@@ -133,11 +133,22 @@
                         <outlet property="navigationView" destination="rij-xs-0eb" id="ncY-lE-7Wk"/>
                         <outlet property="searchButton" destination="B5n-ch-9fs" id="FYp-fY-OWA"/>
                         <outlet property="setLimitButton" destination="wn8-Sc-A5z" id="vQK-Nm-71g"/>
+                        <segue destination="zq2-Sj-lIa" kind="show" identifier="goToDetail" id="4zE-ce-kUl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-77.099236641221367" y="3.5211267605633805"/>
+        </scene>
+        <!--BusinessDetailVC-->
+        <scene sceneID="e7k-oc-zXC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BusinessDetail" referencedIdentifier="BusinessDetailVC" id="zq2-Sj-lIa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bRu-Uu-Slo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFD-Rj-2Xv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="4"/>
         </scene>
     </scenes>
     <resources>

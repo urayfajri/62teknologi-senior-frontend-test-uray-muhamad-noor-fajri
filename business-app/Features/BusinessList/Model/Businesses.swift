@@ -36,6 +36,7 @@ struct Businesses : Codable {
     let phone : String?
     let display_phone : String?
     let distance : Double?
+    let photos : [String]?
 
     enum CodingKeys: String, CodingKey {
 
@@ -55,6 +56,7 @@ struct Businesses : Codable {
         case phone = "phone"
         case display_phone = "display_phone"
         case distance = "distance"
+        case photos = "photos"
     }
 
     init(from decoder: Decoder) throws {
@@ -75,6 +77,7 @@ struct Businesses : Codable {
         phone = try values.decodeIfPresent(String.self, forKey: .phone)
         display_phone = try values.decodeIfPresent(String.self, forKey: .display_phone)
         distance = try values.decodeIfPresent(Double.self, forKey: .distance)
+        photos = try values.decodeIfPresent([String].self, forKey: .photos)
     }
 
 }

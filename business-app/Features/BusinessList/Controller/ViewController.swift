@@ -77,15 +77,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToDetail"{
-//            guard let newVC = segue.destination as? BusinessDetailViewController else {
-//               return
-//            }
-//
-//            newVC.businesVM = self.selectedBusinessVM
-//
-//
-//        }
+        if segue.identifier == "goToDetail" {
+            guard let newVC = segue.destination as? BusinessDetailViewController else {
+               return
+            }
+            
+            newVC.businesVM = self.selectedBusinessVM
+
+
+        }
     }
     
     @objc func dismissKeyboard() {
@@ -171,7 +171,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
         selectedBusinessVM = listBusinessVM.modelAt(indexPath.row)
-        //self.performSegue(withIdentifier: "goToDetail", sender: ViewController.self)
+        
+        self.performSegue(withIdentifier: "goToDetail", sender: ViewController.self)
     }
     
 }
