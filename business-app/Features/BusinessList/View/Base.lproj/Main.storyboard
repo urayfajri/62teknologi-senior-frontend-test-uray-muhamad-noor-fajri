@@ -51,12 +51,33 @@
                                             <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qUM-mi-YOu"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1A0-KI-dBb">
+                                        <rect key="frame" x="16" y="106" width="361" height="34.333333333333343"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Limit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSZ-cy-rwj">
+                                                <rect key="frame" x="0.0" y="0.0" width="255.33333333333334" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wn8-Sc-A5z">
+                                                <rect key="frame" x="270.33333333333331" y="0.0" width="90.666666666666686" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Set Limit"/>
+                                                <connections>
+                                                    <action selector="setLimitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c3K-wc-tlu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="1A0-KI-dBb" firstAttribute="top" secondItem="B5n-ch-9fs" secondAttribute="bottom" constant="15" id="B4U-Ga-qEb"/>
                                     <constraint firstAttribute="trailing" secondItem="fie-rd-zod" secondAttribute="trailing" id="FDS-Fc-nT0"/>
                                     <constraint firstItem="B5n-ch-9fs" firstAttribute="baseline" secondItem="g5F-SN-cYi" secondAttribute="baseline" id="NPP-Oz-JyO"/>
+                                    <constraint firstAttribute="trailing" secondItem="1A0-KI-dBb" secondAttribute="trailing" constant="16" id="TEo-YY-O7k"/>
                                     <constraint firstItem="g5F-SN-cYi" firstAttribute="top" secondItem="fie-rd-zod" secondAttribute="bottom" constant="18" id="Y6D-jj-4d0"/>
+                                    <constraint firstItem="1A0-KI-dBb" firstAttribute="leading" secondItem="rij-xs-0eb" secondAttribute="leading" constant="16" id="fJa-Xa-dK7"/>
                                     <constraint firstItem="B5n-ch-9fs" firstAttribute="top" secondItem="fie-rd-zod" secondAttribute="bottom" constant="18" id="fVk-1s-dWK"/>
                                     <constraint firstItem="fie-rd-zod" firstAttribute="top" secondItem="rij-xs-0eb" secondAttribute="top" constant="8" id="gv3-lx-ZxS"/>
                                     <constraint firstItem="g5F-SN-cYi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B5n-ch-9fs" secondAttribute="trailing" constant="8" symbolic="YES" id="lij-Y1-dcG"/>
@@ -66,7 +87,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P1U-Hc-nv2">
-                                <rect key="frame" x="0.0" y="160" width="393" height="692"/>
+                                <rect key="frame" x="0.0" y="219" width="393" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0u-JH-M3t">
@@ -92,15 +113,15 @@
                         <constraints>
                             <constraint firstItem="rij-xs-0eb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4iA-7f-Xub"/>
                             <constraint firstItem="rij-xs-0eb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6xb-ZJ-60c"/>
+                            <constraint firstItem="P1U-Hc-nv2" firstAttribute="trailing" secondItem="rij-xs-0eb" secondAttribute="trailing" id="DKb-l1-fnR"/>
                             <constraint firstItem="w0u-JH-M3t" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UZc-gE-6bW"/>
-                            <constraint firstItem="P1U-Hc-nv2" firstAttribute="leading" secondItem="rij-xs-0eb" secondAttribute="leading" id="Vub-9a-h6N"/>
                             <constraint firstItem="rij-xs-0eb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Z0A-G1-fGI"/>
+                            <constraint firstItem="P1U-Hc-nv2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="bWk-he-SS0"/>
                             <constraint firstAttribute="bottom" secondItem="P1U-Hc-nv2" secondAttribute="bottom" id="dUL-bV-IBD"/>
+                            <constraint firstItem="P1U-Hc-nv2" firstAttribute="leading" secondItem="rij-xs-0eb" secondAttribute="leading" id="fXS-CS-vHv"/>
                             <constraint firstItem="rij-xs-0eb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fyt-3F-oXt"/>
-                            <constraint firstItem="P1U-Hc-nv2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="101" id="ksb-w7-xOh"/>
                             <constraint firstItem="w0u-JH-M3t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="m5q-IB-QBV"/>
                             <constraint firstItem="w0u-JH-M3t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="320" id="sSE-ZU-RxW"/>
-                            <constraint firstItem="P1U-Hc-nv2" firstAttribute="trailing" secondItem="rij-xs-0eb" secondAttribute="trailing" id="tqO-uF-Kwn"/>
                             <constraint firstItem="w0u-JH-M3t" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="u77-fQ-OgL"/>
                         </constraints>
                     </view>
@@ -108,8 +129,10 @@
                         <outlet property="businessListTableView" destination="P1U-Hc-nv2" id="6dC-Bq-OQc"/>
                         <outlet property="emptyView" destination="w0u-JH-M3t" id="WhY-rG-ISP"/>
                         <outlet property="filterButton" destination="g5F-SN-cYi" id="9DI-Nu-YsD"/>
+                        <outlet property="limitTextField" destination="xSZ-cy-rwj" id="mPS-48-yhK"/>
                         <outlet property="navigationView" destination="rij-xs-0eb" id="ncY-lE-7Wk"/>
                         <outlet property="searchButton" destination="B5n-ch-9fs" id="FYp-fY-OWA"/>
+                        <outlet property="setLimitButton" destination="wn8-Sc-A5z" id="vQK-Nm-71g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

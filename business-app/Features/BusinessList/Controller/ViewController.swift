@@ -22,9 +22,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var setLimitButton: UIButton!
     
     @IBOutlet weak var businessListTableView: UITableView!
-    
+    @IBOutlet weak var limitTextField: UITextField!
     
     // MARK: Variable
     var listBusinessVM = BusinessListViewModel()
@@ -33,14 +34,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var isLoading = false
     var searchType : String = ""
     var keyword = "location=NYC"
-    var limit = "20"
+    var limit = "&limit=20"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         setUINavigation()
         registerCell()
-        getBusiness(keyword: self.keyword,isNext: false) // just set default
+        getBusiness(keyword: self.keyword + self.limit ,isNext: false) // just set default
     }
     
     func setUINavigation(){
@@ -105,19 +106,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let sortByBestMatch = UIAlertAction(title: "Best Match", style: .default){ (action: UIAlertAction) in
             let filter = "&sort_by=\(SortingValue.bestMatch.rawValue)"
-            self.getBusiness(keyword: self.keyword + filter, isNext: false)
+            self.getBusiness(keyword: self.keyword + filter + self.limit, isNext: false)
         }
         let sortByRating = UIAlertAction(title: "Rating", style: .default){ (action: UIAlertAction) in
             let filter = "&sort_by=\(SortingValue.rating.rawValue)"
-            self.getBusiness(keyword: self.keyword + filter, isNext: false)
+            self.getBusiness(keyword: self.keyword + filter + self.limit, isNext: false)
         }
         let sortByReview = UIAlertAction(title: "Review", style: .default){ (action: UIAlertAction) in
             let filter = "&sort_by=\(SortingValue.review.rawValue)"
-            self.getBusiness(keyword: self.keyword + filter, isNext: false)
+            self.getBusiness(keyword: self.keyword + filter + self.limit, isNext: false)
         }
         let sortByDistance = UIAlertAction(title: "Distance", style: .default){ (action: UIAlertAction) in
             let filter = "&sort_by=\(SortingValue.review.rawValue)"
-            self.getBusiness(keyword: self.keyword + filter, isNext: false)
+            self.getBusiness(keyword: self.keyword + filter + self.limit, isNext: false)
         }
         
         let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
@@ -130,6 +131,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         actionSheet.addAction(cancel)
         
         present(actionSheet, animated: true, completion: nil)
+    }
+    
+    @IBAction func setLimitButtonPressed(_ sender: Any) {
+        guard let limit = limitTextField.text else{return}
+        if(!limit.isEmpty) {
+            self.limit = "&limit=\(limit)"
+            print(self.keyword + self.limit)
+            self.getBusiness(keyword: self.keyword + self.limit, isNext: false)
+            
+        }
     }
 }
 
@@ -163,18 +174,6 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
         //self.performSegue(withIdentifier: "goToDetail", sender: ViewController.self)
     }
     
-    
-    //API doesn't have unlimited page
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row == listBusinessVM.numberOfRows(0) - 4 && !isLoading && listBusinessVM.numberOfRows(0) >= 10{
-//            isLoading = true
-//
-//            getBusiness(keyword: self.keyword, isNext: true)
-//
-//
-//        }
-//    }
-    
 }
 
 // MARK: GET DATA
@@ -198,7 +197,7 @@ extension ViewController{
 extension ViewController : OverlayDoneProtocol{
     func delegateAndSearch(searchTerm: String) {
         self.keyword = searchTerm
-        getBusiness(keyword: searchTerm, isNext: false)
+        getBusiness(keyword: searchTerm + self.limit, isNext: false)
     }
     
     
