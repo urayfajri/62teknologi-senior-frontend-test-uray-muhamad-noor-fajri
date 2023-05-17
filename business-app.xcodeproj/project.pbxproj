@@ -16,6 +16,10 @@
 		202EDCA82A14711300CE859A /* business_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202EDCA72A14711300CE859A /* business_appTests.swift */; };
 		202EDCB22A14711300CE859A /* business_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202EDCB12A14711300CE859A /* business_appUITests.swift */; };
 		202EDCB42A14711300CE859A /* business_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202EDCB32A14711300CE859A /* business_appUITestsLaunchTests.swift */; };
+		202EDCC22A14733400CE859A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202EDCC12A14733400CE859A /* String+Extensions.swift */; };
+		202EDCC52A14736900CE859A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202EDCC42A14736900CE859A /* Constants.swift */; };
+		202EDCC72A14739E00CE859A /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202EDCC62A14739E00CE859A /* LoadingScreen.swift */; };
+		202EDCCA2A14746A00CE859A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202EDCC92A14746A00CE859A /* WebService.swift */; };
 		2DCE9FC6B1F3BFBF647E9DCD /* Pods_business_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361FE28844A0890D8240B5BC /* Pods_business_app.framework */; };
 		C0A9F46251D2636B373D6429 /* Pods_business_app_business_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D65103B8F1459D45F19F24 /* Pods_business_app_business_appUITests.framework */; };
 		E8E63A4BEDDABC641FB754F6 /* Pods_business_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5C523B3D265E06DB6A6B99 /* Pods_business_appTests.framework */; };
@@ -53,6 +57,10 @@
 		202EDCAD2A14711300CE859A /* business-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "business-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		202EDCB12A14711300CE859A /* business_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = business_appUITests.swift; sourceTree = "<group>"; };
 		202EDCB32A14711300CE859A /* business_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = business_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		202EDCC12A14733400CE859A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		202EDCC42A14736900CE859A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		202EDCC62A14739E00CE859A /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		202EDCC92A14746A00CE859A /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		257440EECC1D7A84C3A70B7B /* Pods-business-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-business-appTests.release.xcconfig"; path = "Target Support Files/Pods-business-appTests/Pods-business-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		361FE28844A0890D8240B5BC /* Pods_business_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_business_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80DB7E334BA542CB385F00BE /* Pods-business-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-business-app.debug.xcconfig"; path = "Target Support Files/Pods-business-app/Pods-business-app.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +124,9 @@
 		202EDC8F2A14711200CE859A /* business-app */ = {
 			isa = PBXGroup;
 			children = (
+				202EDCC82A14745800CE859A /* Services */,
+				202EDCC32A14735A00CE859A /* Utils */,
+				202EDCC02A14731500CE859A /* Extensions */,
 				202EDC902A14711200CE859A /* AppDelegate.swift */,
 				202EDC922A14711200CE859A /* SceneDelegate.swift */,
 				202EDC942A14711200CE859A /* ViewController.swift */,
@@ -144,6 +155,31 @@
 			path = "business-appUITests";
 			sourceTree = "<group>";
 		};
+		202EDCC02A14731500CE859A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				202EDCC12A14733400CE859A /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		202EDCC32A14735A00CE859A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				202EDCC42A14736900CE859A /* Constants.swift */,
+				202EDCC62A14739E00CE859A /* LoadingScreen.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		202EDCC82A14745800CE859A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				202EDCC92A14746A00CE859A /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		332345929B2B95CF853BBCAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +190,6 @@
 				B0A65D84C3E3626103D598B7 /* Pods-business-appTests.debug.xcconfig */,
 				257440EECC1D7A84C3A70B7B /* Pods-business-appTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -407,6 +442,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202EDCC52A14736900CE859A /* Constants.swift in Sources */,
+				202EDCC22A14733400CE859A /* String+Extensions.swift in Sources */,
+				202EDCCA2A14746A00CE859A /* WebService.swift in Sources */,
+				202EDCC72A14739E00CE859A /* LoadingScreen.swift in Sources */,
 				202EDC952A14711200CE859A /* ViewController.swift in Sources */,
 				202EDC912A14711200CE859A /* AppDelegate.swift in Sources */,
 				202EDC932A14711200CE859A /* SceneDelegate.swift in Sources */,
