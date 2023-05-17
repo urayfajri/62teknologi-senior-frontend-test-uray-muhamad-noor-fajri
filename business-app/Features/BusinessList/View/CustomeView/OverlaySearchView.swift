@@ -61,13 +61,30 @@ class OverlaySearchView: UIViewController {
         switch searchTypeSegmentedControl.selectedSegmentIndex
         {
         case 0:
-            guard let location = locationTextField.text, let businessName = businessNameTextField.text else{return}
-            searchTerm = "location=\(location)&term=\(businessName)"
-        case 1:
-                guard let location = locationTextField.text else{return}
+            guard let location = locationTextField.text, let businessName = businessNameTextField.text else{
+                return}
+            if(!location.isEmpty && !businessName.isEmpty) {
+                searchTerm = "location=\(location)&term=\(businessName)"
+            } else if(!location.isEmpty && businessName.isEmpty) {
                 searchTerm = "location=\(location)"
-        case 2:
-            searchTerm = "cancelled";
+            } else if(location.isEmpty && !businessName.isEmpty) {
+                searchTerm = "location=NYC&term=\(businessName)"
+            }
+            else {
+                searchTerm = "location=NYC"
+            }
+        case 1:
+            guard let location = locationTextField.text, let radius = cuisineTypeTextField.text else{return}
+            if(!location.isEmpty && !radius.isEmpty) {
+                searchTerm = "location=\(location)&radius=\(radius)"
+            } else if(!location.isEmpty && radius.isEmpty) {
+                searchTerm = "location=\(location)"
+            } else if(location.isEmpty && !radius.isEmpty) {
+                searchTerm = "location=NYC&radius=\(radius)"
+            }
+            else {
+                searchTerm = "location=NYC"
+            }
         default:
             break;
         }
@@ -98,16 +115,6 @@ class OverlaySearchView: UIViewController {
             self.businessNameStackView.isHidden = true
             self.businessNameLabel.isHidden = true
             self.businessNameTextField.isHidden = true
-            
-            self.cuisineTypeStackView.isHidden = true
-        case 2:
-            self.locationStackView.isHidden = false
-            self.locationLabel.isHidden = false
-            self.locationTextField.isHidden = false
-            
-            self.businessNameStackView.isHidden = false
-            self.businessNameLabel.isHidden = false
-            self.businessNameTextField.isHidden = false
             
             self.cuisineTypeStackView.isHidden = false
         default:
@@ -142,7 +149,6 @@ class OverlaySearchView: UIViewController {
         textField.resignFirstResponder()
         
         guard let searchText = textField.text else { return false}
-//        presenter?.searchImage(querySearch: searchText)
         return true
     }
     
