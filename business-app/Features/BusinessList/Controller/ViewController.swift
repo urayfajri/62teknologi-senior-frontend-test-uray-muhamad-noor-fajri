@@ -33,6 +33,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var isLoading = false
     var searchType : String = ""
     var keyword = "location=NYC"
+    var limit = "20"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,24 +102,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func filterButtonPressed(_ sender: Any) {
         let actionSheet = UIAlertController(title: "Sort By", message: "", preferredStyle: .actionSheet)
-//        actionSheet.view.tintColor = Uicolor
         
         let sortByBestMatch = UIAlertAction(title: "Best Match", style: .default){ (action: UIAlertAction) in
-            self.keyword += "&sort_by=\(SortingValue.bestMatch.rawValue)"
-            self.getBusiness(keyword: self.keyword, isNext: false)
+            let filter = "&sort_by=\(SortingValue.bestMatch.rawValue)"
+            self.getBusiness(keyword: self.keyword + filter, isNext: false)
         }
         let sortByRating = UIAlertAction(title: "Rating", style: .default){ (action: UIAlertAction) in
-            
-            self.keyword += "&sort_by=\(SortingValue.rating.rawValue)"
-            self.getBusiness(keyword: self.keyword, isNext: false)
+            let filter = "&sort_by=\(SortingValue.rating.rawValue)"
+            self.getBusiness(keyword: self.keyword + filter, isNext: false)
         }
         let sortByReview = UIAlertAction(title: "Review", style: .default){ (action: UIAlertAction) in
-            self.keyword += "&sort_by=\(SortingValue.review.rawValue)"
-            self.getBusiness(keyword: self.keyword, isNext: false)
+            let filter = "&sort_by=\(SortingValue.review.rawValue)"
+            self.getBusiness(keyword: self.keyword + filter, isNext: false)
         }
         let sortByDistance = UIAlertAction(title: "Distance", style: .default){ (action: UIAlertAction) in
-            self.keyword += "&sort_by=\(SortingValue.distance.rawValue)"
-            self.getBusiness(keyword: self.keyword, isNext: false)
+            let filter = "&sort_by=\(SortingValue.review.rawValue)"
+            self.getBusiness(keyword: self.keyword + filter, isNext: false)
         }
         
         let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
