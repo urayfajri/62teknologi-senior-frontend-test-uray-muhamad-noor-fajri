@@ -99,7 +99,7 @@ class OverlaySearchView: UIViewController {
             self.businessNameLabel.isHidden = true
             self.businessNameTextField.isHidden = true
             
-            self.cuisineTypeStackView.isHidden = false
+            self.cuisineTypeStackView.isHidden = true
         case 2:
             self.locationStackView.isHidden = false
             self.locationLabel.isHidden = false
@@ -109,7 +109,7 @@ class OverlaySearchView: UIViewController {
             self.businessNameLabel.isHidden = false
             self.businessNameTextField.isHidden = false
             
-            self.cuisineTypeStackView.isHidden = true
+            self.cuisineTypeStackView.isHidden = false
         default:
             break;
         }

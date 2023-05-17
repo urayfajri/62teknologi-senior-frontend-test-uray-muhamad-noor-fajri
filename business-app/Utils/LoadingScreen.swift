@@ -23,7 +23,7 @@ public class LoadingScreen {
         indicator.style = .whiteLarge
         indicator.center = blurImg.center
         indicator.startAnimating()
-        indicator.color = UIColor.red
+        indicator.color = UIColor.blue
     }
 
     func showIndicator(){

@@ -48,6 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         navigationView.layer.shadowOffset = CGSize(width: 1, height: 1)
         navigationView.layer.shadowRadius = 1
         navigationView.layer.shadowOpacity = 5
+        emptyView.isHidden = true
     }
     
     func registerCell(){
@@ -160,7 +161,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
         selectedBusinessVM = listBusinessVM.modelAt(indexPath.row)
-        self.performSegue(withIdentifier: "goToDetail", sender: ViewController.self)
+        //self.performSegue(withIdentifier: "goToDetail", sender: ViewController.self)
     }
     
     
