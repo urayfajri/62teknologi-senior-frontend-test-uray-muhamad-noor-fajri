@@ -148,8 +148,6 @@
 				202EDCC02A14731500CE859A /* Extensions */,
 				202EDC902A14711200CE859A /* AppDelegate.swift */,
 				202EDC922A14711200CE859A /* SceneDelegate.swift */,
-				202EDC942A14711200CE859A /* ViewController.swift */,
-				202EDC962A14711200CE859A /* Main.storyboard */,
 				202EDC992A14711200CE859A /* Assets.xcassets */,
 				202EDC9B2A14711200CE859A /* LaunchScreen.storyboard */,
 				202EDC9E2A14711200CE859A /* Info.plist */,
@@ -211,6 +209,8 @@
 		202EDCCC2A14757100CE859A /* BusinessList */ = {
 			isa = PBXGroup;
 			children = (
+				202EDCE42A1477D100CE859A /* Controller */,
+				202EDCE32A1477C100CE859A /* View */,
 				202EDCDC2A14769600CE859A /* ViewModel */,
 				202EDCCD2A1475A100CE859A /* Model */,
 			);
@@ -253,6 +253,22 @@
 				202EDCE12A14773D00CE859A /* BusinessViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		202EDCE32A1477C100CE859A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				202EDC962A14711200CE859A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		202EDCE42A1477D100CE859A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				202EDC942A14711200CE859A /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		332345929B2B95CF853BBCAA /* Pods */ = {
