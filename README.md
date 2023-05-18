@@ -1,4 +1,3 @@
-# 62teknologi-senior-frontend-test-uray-muhamad-noor-fajri
 
 <div align="center">
   <h2>Business App</h2>
@@ -26,9 +25,9 @@ The app can filter the list of business from Best Match, Rating, Review Count, a
 
 Detail :
 The app show the information of business:
--Name and photo of business
--Address and contact Information
--Rating and Prices
--Photo Gallery of buiness
--Business Review from the user
+-   Name and photo of business
+-   Address and contact Information
+-   Rating and Prices
+-   Photo Gallery of buiness
+-   Business Review from the user
 
