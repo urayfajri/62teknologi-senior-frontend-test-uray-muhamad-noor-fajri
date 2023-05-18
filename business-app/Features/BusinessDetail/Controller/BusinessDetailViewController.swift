@@ -17,6 +17,7 @@ class BusinessDetailViewController: UIViewController {
     
     // MARK: VARIABLE
     var businesVM : BusinessViewModel?
+    var businesReviewVM = BusinessReviewViewModel(reviews: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class BusinessDetailViewController: UIViewController {
         
         if let id = businesVM?.item.id{
             getBusinessDetail(id: id)
+            getBusinessReviewDetail(id: id)
         }
     }
     
@@ -46,13 +48,20 @@ class BusinessDetailViewController: UIViewController {
         })
     }
     
+    func getBusinessReviewDetail(id: String){
+        businesReviewVM.getBusinessDetailReviewFromID(id: id, completion: { BusinessReview in
+            LoadingScreen.sharedInstance.showIndicator()
+            DispatchQueue.main.async {
+                self.businessDetailTableView.reloadData()
+            }
+            LoadingScreen.sharedInstance.hideIndicator()
+        })
+    }
+    
     func registerCell(){
         businessDetailTableView.register(UINib.init(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "headerTableViewCell")
-//        businessDetailTableView.register(UINib.init(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryTableView")
-//
-//        businessDetailTableView.register(UINib.init(nibName: "HoursOperationTableViewCell", bundle: nil), forCellReuseIdentifier: "hoursOfOperationsTableViewCell")
-          businessDetailTableView.register(UINib.init(nibName: "PhotoGalleryTableViewCell", bundle: nil), forCellReuseIdentifier: "photoGalleryTableViewCell")
-//        businessDetailTableView.register(UINib.init(nibName: "TransactionsTableViewCell", bundle: nil), forCellReuseIdentifier: "transactionsTableViewCell")
+        businessDetailTableView.register(UINib.init(nibName: "PhotoGalleryTableViewCell", bundle: nil), forCellReuseIdentifier: "photoGalleryTableViewCell")
+        businessDetailTableView.register(UINib.init(nibName: "BusinessReviewTableViewCell", bundle: nil), forCellReuseIdentifier: "businessReviewTableViewCell")
         businessDetailTableView.delegate = self
         businessDetailTableView.dataSource = self
     }
@@ -66,44 +75,23 @@ class BusinessDetailViewController: UIViewController {
 
 extension BusinessDetailViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "headerTableViewCell", for: indexPath) as! HeaderTableViewCell
-            
-            
             let address = "\(businesVM?.item.location?.address1 ?? "") \(businesVM?.item.location?.city ?? "") , \(businesVM?.item.location?.state ?? "")  \(businesVM?.item.location?.zip_code ?? "")"
-            
-            
             cell.setupUI(name: businesVM?.item.name ?? "", displayPhone: businesVM?.item.display_phone ?? "", address: address, imageURL: URL(string: businesVM?.item.image_url ?? ""), rating: businesVM?.item.rating ?? 0, price: businesVM?.item.price ?? "-")
-            
             return cell
-//        case 1:
-//
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryTableView", for: indexPath) as! CategoryTableViewCell
-//
-//            cell.setupUI(category: businesVM?.item.categories ?? [])
-//            return cell
-//        case 2:
-//
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "hoursOfOperationsTableViewCell", for: indexPath) as! HoursOperationTableViewCell
-//
-//            cell.setupUI(hoursOperations: businesVM?.item.hours?[0].open ?? [])
-//            return cell
-//
-//        case 3:
-//
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "transactionsTableViewCell", for: indexPath) as! TransactionsTableViewCell
-//
-//            cell.setupUI(transactions: businesVM?.item.transactions ?? [])
-//            return cell
-//
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "photoGalleryTableViewCell", for: indexPath) as! PhotoGalleryTableViewCell
             cell.setupUI(listPhoto: businesVM?.item.photos ?? [])
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "businessReviewTableViewCell", for: indexPath) as! BusinessReviewTableViewCell
+            cell.setupUI(listReview: businesReviewVM.item)
             return cell
         default:
             return UITableViewCell()
@@ -118,14 +106,10 @@ extension BusinessDetailViewController : UITableViewDataSource, UITableViewDeleg
         switch indexPath.row{
         case 0:
             return 450
-//        case 1:
-//            return 100
-//        case 2 :
-//            return 200
-//        case 3 :
-//            return 150
-        case 2 :
+        case 1:
             return 150
+        case 2 :
+            return 200
         default:
             return 100
         }
