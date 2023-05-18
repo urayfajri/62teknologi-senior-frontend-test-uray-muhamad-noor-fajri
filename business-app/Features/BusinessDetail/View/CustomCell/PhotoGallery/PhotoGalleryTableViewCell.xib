@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoGalleryTableViewCell" rowHeight="150" id="KGk-i7-Jjw" customClass="PhotoGalleryTableViewCell" customModule="business_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8T8-vk-z0K">
+                        <rect key="frame" x="5" y="5" width="310" height="140"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Gallery : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g93-Go-5K8">
+                                <rect key="frame" x="10" y="5" width="290" height="20"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GmE-eW-dBD">
+                                <rect key="frame" x="10" y="30" width="290" height="105"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pSZ-GB-zhr">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GmE-eW-dBD" firstAttribute="leading" secondItem="8T8-vk-z0K" secondAttribute="leading" constant="10" id="4Jh-Cq-Cxz"/>
+                            <constraint firstItem="g93-Go-5K8" firstAttribute="leading" secondItem="8T8-vk-z0K" secondAttribute="leading" constant="10" id="Pey-sa-im3"/>
+                            <constraint firstAttribute="bottom" secondItem="GmE-eW-dBD" secondAttribute="bottom" constant="5" id="Rpu-An-a7U"/>
+                            <constraint firstAttribute="trailing" secondItem="g93-Go-5K8" secondAttribute="trailing" constant="10" id="V4C-z7-BAC"/>
+                            <constraint firstItem="GmE-eW-dBD" firstAttribute="top" secondItem="g93-Go-5K8" secondAttribute="bottom" constant="5" id="XgI-yC-2I4"/>
+                            <constraint firstAttribute="trailing" secondItem="GmE-eW-dBD" secondAttribute="trailing" constant="10" id="nKi-IG-kgZ"/>
+                            <constraint firstItem="g93-Go-5K8" firstAttribute="top" secondItem="8T8-vk-z0K" secondAttribute="top" constant="5" id="qjs-fy-qgn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8T8-vk-z0K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="3U6-l5-zwW"/>
+                    <constraint firstItem="8T8-vk-z0K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="BBW-ux-xuP"/>
+                    <constraint firstAttribute="trailing" secondItem="8T8-vk-z0K" secondAttribute="trailing" constant="5" id="Ray-ss-kh9"/>
+                    <constraint firstAttribute="bottom" secondItem="8T8-vk-z0K" secondAttribute="bottom" constant="5" id="qeN-1B-WyQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="outerView" destination="8T8-vk-z0K" id="3pX-WE-gLg"/>
+                <outlet property="photoGalleryCollectionView" destination="GmE-eW-dBD" id="0Gb-Gr-qiB"/>
+            </connections>
+            <point key="canvasLocation" x="103.81679389312977" y="57.04225352112676"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -17,11 +17,13 @@ struct Constants {
         
         
         static func urlForGetID(id: String) -> URL {
-            
-            
             return URL(string: "https://api.yelp.com/v3/businesses/\(id)")!
         }
         
+        
+        static func urlForGetBusinessReview(id: String) -> URL {
+            return URL(string: "https://api.yelp.com/v3/businesses/\(id)/reviews?limit=20&sort_by=newest")!
+        }
     }
     
     static let API_KEYS = "OjveWGLHeHu_uu50iyXjZ8yQhBIoNR9G2-xkY6Pz-Wzr6PfKb2T05oeSpOfqsOjbOSodM4w0T6WpeWpAT4oPo_TQEgn00QxI4Pag39atSvAPYaswMLYHYuBW70djZHYx"

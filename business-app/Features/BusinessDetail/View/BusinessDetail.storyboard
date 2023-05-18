@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Business-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BusinessDetailVC" id="Y6W-OH-hqX" customClass="BusinessDetailViewController" customModule="business_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o3s-Ew-yCZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jW-vl-qXt">
+                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJz-F6-I1p">
+                                        <rect key="frame" x="15" y="7.6666666666666714" width="82" height="34.666666666666664"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=" Back"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lWT-Qg-616"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="fJz-F6-I1p" firstAttribute="centerY" secondItem="8jW-vl-qXt" secondAttribute="centerY" id="2FF-9N-NaJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="Lj5-bm-rG4"/>
+                                    <constraint firstItem="fJz-F6-I1p" firstAttribute="leading" secondItem="8jW-vl-qXt" secondAttribute="leading" constant="15" id="Mwq-cL-tEg"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mZw-yX-b5m">
+                                <rect key="frame" x="0.0" y="117" width="393" height="735"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8rj-yP-TAJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mZw-yX-b5m" secondAttribute="bottom" id="0mp-IF-hMx"/>
+                            <constraint firstItem="mZw-yX-b5m" firstAttribute="trailing" secondItem="8rj-yP-TAJ" secondAttribute="trailing" id="7zH-ig-bM8"/>
+                            <constraint firstItem="8jW-vl-qXt" firstAttribute="top" secondItem="8rj-yP-TAJ" secondAttribute="top" id="EFN-vB-Bwd"/>
+                            <constraint firstItem="8jW-vl-qXt" firstAttribute="trailing" secondItem="8rj-yP-TAJ" secondAttribute="trailing" id="UvR-TN-Va8"/>
+                            <constraint firstItem="8jW-vl-qXt" firstAttribute="leading" secondItem="8rj-yP-TAJ" secondAttribute="leading" id="fXf-gh-K0Q"/>
+                            <constraint firstItem="mZw-yX-b5m" firstAttribute="leading" secondItem="8rj-yP-TAJ" secondAttribute="leading" id="qBr-qO-Q2B"/>
+                            <constraint firstItem="mZw-yX-b5m" firstAttribute="top" secondItem="8jW-vl-qXt" secondAttribute="bottom" constant="8" symbolic="YES" id="xDE-XD-Rn3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail Business" id="RQM-d3-8xj"/>
+                    <connections>
+                        <outlet property="backButton" destination="fJz-F6-I1p" id="jxa-p6-ikp"/>
+                        <outlet property="businessDetailTableView" destination="mZw-yX-b5m" id="Pb5-N6-aRb"/>
+                        <outlet property="navigationView" destination="8jW-vl-qXt" id="T51-z4-reE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962.59541984732823" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
