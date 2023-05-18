@@ -53,7 +53,7 @@ extension BusinessReviewTableViewCell : UICollectionViewDelegate, UICollectionVi
             username: reviews[indexPath.row].user?.name ?? "-",
             rating: Double(reviews[indexPath.row].rating ?? 0),
             ratingDescription: reviews[indexPath.row].text ?? "-",
-            imageUserProfileURL: URL(string: reviews[indexPath.row].user?.profile_url ?? "-")
+            imageUserProfileURL:  URL(string: reviews[indexPath.row].user?.profile_url ?? "")
         )
         
         return item

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class BusinessReviewCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var outerView: UIView!
@@ -37,7 +38,7 @@ class BusinessReviewCollectionViewCell: UICollectionViewCell {
         ratingDescriptionLabel.text = ratingDescription
         
         guard let imageUrl = imageUserProfileURL else {return}
-        print("ini gambar \(imageUrl)")
+        
         userProfileImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "noImage"))
     }
 
