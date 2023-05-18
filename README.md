@@ -31,3 +31,16 @@ The app show the information of business:
 -   Photo Gallery of buiness
 -   Business Review from the user
 
+## To Run This Project will follow the steps below:
+
+### 1. Install project dependency
+
+
+```
+pod install
+```
+
+or
+
+```
+arch -x86_64 pod install 
